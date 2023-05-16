@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    age_of_live:{
+    life_span:{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
