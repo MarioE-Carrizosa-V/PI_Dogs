@@ -1,0 +1,7 @@
+.cardDisplay{
+    text-align: center;
+    background-color: purple; 
+    width: 100%;
+    height: 100vh;
+    background-size: 100%
+}

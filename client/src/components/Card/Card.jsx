@@ -1,28 +1,24 @@
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import getByBreed from "../../redux/action"
-import { useState, useEffect } from 'react';
+import style from './Card.module.css'
 
 
-const Card = ({id, image, name, heigth, weigth, temperament, lifeSpan, onClose}) => {
-    const dispatch = useDispatch()
+const Card = ({id, name, image, temperament, life_span}) => {
 
-    useEffect(() => {
-        dispatch(getByBreed)
-    }, [])
- 
+
     return (
-        <div>
-            <button onClick={() => onClose(id)}>X</button>
-            <img src={image} alt='' />
-                <Link to={`/detail/${id}`}>
-            <h2>{name}</h2>
+        
+    <div className={style.cardDisplay}>
+        <card className={style.cards}>
+            <div key={id} >
+                <Link to={`/dogs/${id}`}>
+              <h1 className={style.text}>{name}</h1>
                 </Link>
-            <h4>{temperament}</h4>            
-        </div>
-
-        )
-    }
-
+              <img src={image} alt='' className={style.imagen}/>
+              <h2>{temperament}</h2>
+            </div>
+        </card>
+    </div>
+  );
+};
 
 export default Card

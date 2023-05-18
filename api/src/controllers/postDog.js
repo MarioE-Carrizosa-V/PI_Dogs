@@ -3,15 +3,15 @@ require('dotenv').config();
   
 const postDog = async(req, res) =>{
     try {
-        const {name, life_span, weigth, heigth, image, temperamento} = req.body;
-        if(!name || !life_span || !weigth || !heigth || !image || !temperamento) throw Error('Faltan datos')
+        const {name, life_span, weight, height, image, temperament} = req.body;
+        if(!name || !life_span || !weight || !height || !image || !temperament) throw Error('Faltan datos')
 
 
 
-        if(temperamento){
-            for (let i = 0; i < temperamento.length; i++) {
+        if(temperament){
+            for (let i = 0; i < temperament.length; i++) {
                 await Temperament.findOrCreate({ where:
-                    {temperament: temperamento[i]}
+                    {temperament: temperament[i]}
                 }) 
             }
         }
@@ -19,8 +19,8 @@ const postDog = async(req, res) =>{
         const dog = {
             name: name,
             life_span: life_span,
-            weigth: weigth,
-            heigth: heigth,
+            weight: weight,
+            height: height,
             image: image
         }
 
@@ -29,7 +29,7 @@ const postDog = async(req, res) =>{
         })
         if(!dogExists.length){
             const createDog = await Dog.create(dog)
-        let idDog = await Temperament.findAll({where:{temperament: temperamento} })
+        let idDog = await Temperament.findAll({where:{temperament: temperament} })
         await createDog.addTemperament(idDog) 
 
         

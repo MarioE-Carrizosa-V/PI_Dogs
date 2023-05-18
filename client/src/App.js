@@ -1,27 +1,24 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Card from './components/Card/Card';
 import Cards from './components/Cards/Cards';
+import Detail from './components/Detail/Detail';
+import Nav from './components/Nav/Nav';
+import { getByName } from './redux/action';
 
 function App() {
-  const [dogs, setDogs] = useState([])
-
-  function onClose (id) {
-    const filtered = dogs.filter(dog => dog.id !== id)
-       setDogs(filtered)
- }
-
- useEffect(() => {
   
- })
-
   return (
     <div >
-      <Routes>
-        <Route path='/dogs' element={<Card/>} />
-      </Routes>
-      <Cards dogs={dogs} onClose={onClose}/>
+      {<Nav/>}
+        <Routes>
+          <Route path='/dogs' element={<Card/>} />
+          <Route path='/dogs/:id' element={<Detail/>}/>
+        </Routes>
+      <Cards/>
     </div>
   );
 }

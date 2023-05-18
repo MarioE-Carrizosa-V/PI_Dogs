@@ -21,6 +21,15 @@ const getDogsById = async (req, res) => {
     }
     else {
         filteredDog = data.find(dog => dog.id === +idRaza.trim())
+        filteredDog = {
+            name: filteredDog.name,
+            image: filteredDog.image.url,
+            weight: filteredDog.weight.metric,
+            height: filteredDog.height.metric,
+            id: filteredDog.id,
+            life_span: filteredDog.life_span,
+            temperament: filteredDog.temperament
+        }
     }
     if(!filteredDog && filterDogDB.length === 0) {
             throw Error(`No hay razas con el id: ${idRaza.trim()}`)
