@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {Dog} = require('../db')
+const {Dog, Temperament} = require('../db')
 require('dotenv').config();
 const {URL} = process.env;
 
@@ -10,7 +10,7 @@ const getByName = async(req, res) => {
         if(!name) throw Error('Ingrese un nombre válido');
         const {data} = await axios(`${URL}`)
 
-            const allDogDB = await Dog.findAll() 
+            const allDogDB = await Dog.findAll({include: {model: Temperament, through: 'dogTemperament', attributes: ['temperament']}});
             const filterDogDB = allDogDB.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase().trim()))
             if(filterDogDB){
                 allDogs = [...filterDogDB]

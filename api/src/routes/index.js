@@ -29,7 +29,7 @@ router.post('/dogs/saveDog/', (req, res) => {
     postDog(req, res)
 })
 
-router.get('/dogs/temperaments', (req, res) => {
+router.get('/temperament', (req, res) => {
     getTemperament(req, res)
 })
 

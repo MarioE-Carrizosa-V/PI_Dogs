@@ -1,0 +1,8 @@
+.imagen{
+    height:20rem;
+    width:30rem;
+    z-index: -1;
+    size: cover;
+    border-radius: 50px; /*bordes redondos*/
+  
+  } 

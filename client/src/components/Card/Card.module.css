@@ -5,24 +5,14 @@
     -webkit-text-stroke: 0.03em black;
 }
 
-.boton {
+.temperament{
     background-position: right;
-    background: black; 
-    border: none;
-    width: 2rem;
-    height: 2rem;
-    color: red;
     display: inline-block;
     padding: 0.5rem;
     text-align: center;
-    display: inline-block;
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0rem; 
     transition: all 0.5s;
-    cursor: pointer;
-    border-radius: 100rem;
-    text-decoration:double;
-    text-transform: uppercase;
 }
 
 .boton:hover {
@@ -32,7 +22,7 @@
 }
 
 .cards{
-    width: 30rem;
+    width: 20rem;
     height: auto;
     border-radius: 1rem;
     border: 0.4rem solid black;
@@ -73,6 +63,6 @@
 }
 
 .imagen{
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 18rem;
 }

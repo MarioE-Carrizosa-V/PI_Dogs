@@ -30,7 +30,7 @@ const Detail = () => {
                 <h4>Peso: {dogById.weight}</h4>
                 <h4>Altura: {dogById.height}</h4>
                 <h4>Años de vida: {dogById.life_span}</h4>
-                <h4>{dogById.temperament}</h4>
+                <h4>{dogById.Temperaments? dogById.Temperaments.map((temp) => temp.temperament): dogById.temperament}</h4>
             </card>
         </div>
     </div>

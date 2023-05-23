@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {Dog} = require('../db')
+const {Dog, Temperament} = require('../db')
 require('dotenv').config();
 const {URL} = process.env;
 
@@ -12,7 +12,7 @@ const getDogsById = async (req, res) => {
         let filteredDog;
 
         if(idRaza.includes('-')){
-            filterDogDB = await Dog.findAll({
+            filterDogDB = await Dog.findAll({include: {model: Temperament, through: 'dogTemperament', attributes: ['temperament']},
             where: {id: idRaza.trim()}
         })
         if(filterDogDB.length !== 0){

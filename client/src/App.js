@@ -1,22 +1,26 @@
 import './App.css';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useLocation} from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Card from './components/Card/Card';
 import Cards from './components/Cards/Cards';
 import Detail from './components/Detail/Detail';
 import Nav from './components/Nav/Nav';
-import { getByName } from './redux/action';
+import Form from './components/Form/Form';
+import Homepage from './components/Homepage/Homepage';
 
 function App() {
-  
+  const location = useLocation()
+
   return (
-    <div >
-      {<Nav/>}
+    <div className='App'>
+      {location.pathname !== "/" && location.pathname !== '/dogs/saveDog' && <Nav/>}
         <Routes>
-          <Route path='/dogs' element={<Card/>} />
+          <Route path='/dogs/' element={<Card/>} />
           <Route path='/dogs/:id' element={<Detail/>}/>
+          <Route path='/dogs/search' element=''/>
+          <Route path='/dogs/filter' element=''/>
+          <Route path='/dogs/saveDog' element={<Form/>} />
+          <Route path='/' element={<Homepage/>}/>
         </Routes>
       <Cards/>
     </div>

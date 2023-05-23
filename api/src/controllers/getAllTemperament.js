@@ -6,18 +6,21 @@ const {URL} = process.env;
 const getTemperament = async(req, res) =>{
     try {
         const { data } = await axios(`${URL}`)
+        console.log(data);
         const temperament = data.map(dog => dog.temperament ? dog.temperament.split(',') : dog.temperament)
         const allTemperament = temperament.flat()
+        console.log(allTemperament);
             for (let i = 0; i < allTemperament.length; i++) {
                 if(allTemperament[i])
                 await Temperament.findOrCreate({ where:
-                    {temperament: allTemperament[i].toLowerCase().trim()}
+                    {temperament: allTemperament[i]}
                 }) 
             }
-            const Temperaments = await Temperament.findAll({
+            const allTemperaments = await Temperament.findAll({
+                attributes: {exclude: ["id"]}
             })
 
-        res.status(200).json(Temperaments)
+        res.status(200).json(allTemperaments)
     } catch (error) {
         res.status(400).send({error: error.message})
     }
