@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import style from './Detail.module.css'
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,15 +23,19 @@ const Detail = () => {
     
     return (
     <div className={style.cardDisplay}>
-        <div className="Detail">
-            <card className={''}>
-                <h2>{dogById.name}</h2>
-                <img src={dogById.image} alt=''/>
-                <h4>Peso: {dogById.weight}</h4>
-                <h4>Altura: {dogById.height}</h4>
-                <h4>Años de vida: {dogById.life_span}</h4>
-                <h4>{dogById.Temperaments? dogById.Temperaments.map((temp) => temp.temperament): dogById.temperament}</h4>
-            </card>
+        <div>
+        <Link to={'/'}> <button className={style.button}> HomePage </button> </Link>
+
+        <Link to='/dogs/saveDog'> <button className={style.button}> Create Your Dog </button> </Link>
+
+        <Link to='/dogs/'> <button className={style.button}>All Dogs</button> </Link>
+
+                <h2 className={style.text}>{dogById.name}</h2>
+                <img className={style.image} src={dogById.image} alt=''/>
+                <p className={style.weight}>Weight in Kg: {dogById.weight}</p>
+                <p className={style.height}>Height in cm: {dogById.height}</p>
+                <p className={style.life}>Life span: {dogById.life_span}</p>
+                <p className={style.temperament}>{dogById.Temperaments? dogById.Temperaments.map((temp) => temp.temperament): dogById.temperament}</p>
         </div>
     </div>
     )

@@ -13,7 +13,6 @@ function App() {
 
   return (
     <div className='App'>
-      {location.pathname !== "/" && location.pathname !== '/dogs/saveDog' && <Nav/>}
         <Routes>
           <Route path='/dogs/' element={<Card/>} />
           <Route path='/dogs/:id' element={<Detail/>}/>
@@ -22,6 +21,7 @@ function App() {
           <Route path='/dogs/saveDog' element={<Form/>} />
           <Route path='/' element={<Homepage/>}/>
         </Routes>
+        {location.pathname !== "/" && location.pathname !== '/dogs/saveDog' && <Nav/>}
       <Cards/>
     </div>
   );

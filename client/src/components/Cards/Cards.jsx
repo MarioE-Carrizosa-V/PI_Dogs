@@ -10,10 +10,9 @@ function Cards() {
    const dispatch = useDispatch()
    const location = useLocation()
    const dogs = useSelector(state => state.allDogs)
-   console.log(dogs);
    useEffect(() => {
        dispatch(getByBreed())
-   }, [])
+      }, [])
    
    return (
 
@@ -21,9 +20,7 @@ function Cards() {
       <div className={style.cardDisplay}>
          { location.pathname === '/dogs/' &&
             dogs.map(({id, name, temperament, life_span, weight, height, image, Temperaments}) => {
-               console.log( 'cards',temperament)
                const newsTemperaments = temperament && temperament.includes(',') ? temperament.split(','): temperament
-               console.log(newsTemperaments)
                return (
                   <Card
                     key={id}

@@ -1,0 +1,46 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    font-size: auto;
+    padding: 8px; /*espacio alrededor texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 50px; /*bordes redondos*/
+    font-weight: bolder;
+    font-style: oblique;
+    color: black;
+    -webkit-text-stroke: 0.03em  silver;
+    font-size: 4rem;
+
+}
+
+.button{
+    color: blue;
+    background-color: silver;
+    font-size: large;
+    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 8px; /*espacio alrededor texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 50px; /*bordes redondos*/
+    cursor: pointer;
+    padding: 1rem;
+    align-items: center;
+
+}
+
+.button:hover{
+    width: 12rem;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+
+.image{
+    border-radius: 50%;
+    background-color: #f0c27b;
+    align-items: center;
+
+}

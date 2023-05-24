@@ -28,8 +28,6 @@ import style from '../Nav/Nav.module.css'
         dispatch(getByTemperament())
         if(name)
         dispatch(getByName(name))
-        //console.log(name);
-    
     }, [])
 
     const handleSearch = (searchQuery) => {
@@ -40,20 +38,20 @@ import style from '../Nav/Nav.module.css'
 
         <nav>
 
-        <select onChange={handleOrder}>
+        <select onChange={handleOrder} className={style.select}>
             <option>Order By</option>
             <option value="A">Ascendant</option>
             <option value="D">Falling</option>
         </select>
 
-        <select onChange={handleFilter}>
+        <select onChange={handleFilter} className={style.select}>
             <option>Filter By</option>
              {temperaments.map(({temperament, id}) => (
               <option key={id} value={temperament}>{temperament}</option>
             ))}
         </select>
 
-        <select onChange={handleFilterFrom}> 
+        <select onChange={handleFilterFrom} className={style.select}> 
           <option> Filter From</option>
           <option value="DB">FromDB</option>
           <option value="API">FromAPI</option>
@@ -61,26 +59,12 @@ import style from '../Nav/Nav.module.css'
         </select>
 
 
-         <button className={style.logOut}>
-         <Link className={style.color} to={'/'}>HomePage</Link>   
-         </button>
-
-        <button className={style.about}>
-         <Link to='/about'>About</Link>
-        </button>
+         <Link to={'/'}> <button className={style.button}> HomePage </button> </Link>   
         
-        <button className={style.home}> 
-         <Link to='/dogs/'>AllDogs</Link>
-        </button>
-
-        <button>
-         <Link to='/dogs/saveDog'>Create Your Dog</Link>
-        </button>
+         <Link to='/dogs/saveDog'> <button className={style.button}> Create Your Dog </button> </Link>
+        
 
             <SearchBar onSearch={handleSearch}/>
-            <div className={style.cardDisplay}>
-      </div>
-            
 
         </nav>
         

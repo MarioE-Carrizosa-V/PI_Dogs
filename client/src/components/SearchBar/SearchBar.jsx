@@ -1,5 +1,5 @@
 import { useState } from "react"
-//import style from './Detail.module.css'
+import style from './SearchBar.module.css'
 
 
 export default function SearchBar({onSearch}) {
@@ -12,8 +12,8 @@ export default function SearchBar({onSearch}) {
    return (
 
       <div>
-         <input type='search' onChange={handleChange} value={name}/>
-         <button onClick={() => {onSearch(name); setName("")}}>Buscar</button>
+         <input type='search' onChange={handleChange} value={name} className={style.search} placeholder="Search dog by name"/>
+         <button onClick={() => {onSearch(name); setName("")}} className={style.button}> Buscar </button>
       </div>
    );
 

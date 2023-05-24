@@ -6,7 +6,6 @@ import style from './Card.module.css'
 const Card = ({id, name, image, temperament}) => {
 
 
-    console.log(temperament);
     return (
         
     <div className={style.cardDisplay}> {
@@ -19,8 +18,8 @@ const Card = ({id, name, image, temperament}) => {
               {
                 temperament && temperament.length ?
                 temperament.map(temp => temp.temperament  ?
-                  <p>{temp.temperament} </p>: <p>{temp}</p>):
-                  <p>{temperament}</p>
+                  <p className={style.temperament} key={temp.temperament}>{temp.temperament} </p>: <p className={style.temperament} key={temp}>{temp}</p>):
+                  <p className={style.temperament} key={temperament}>{temperament}</p>
                 
               }
  

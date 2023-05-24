@@ -1,24 +1,10 @@
-.card{
-    font-size: 1.8rem;
-    font-weight: bold;
-    color:black ;
-    -webkit-text-stroke: 0.03em black;
-}
-
 .temperament{
     background-position: right;
     display: inline-block;
     padding: 0.5rem;
     text-align: center;
-    font-size: 1.4rem;
-    margin: 0rem; 
-    transition: all 0.5s;
-}
-
-.boton:hover {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .cards{
@@ -36,23 +22,6 @@
 
 .text{
     color: white;
-}
-
-.favorite{
-    color: greenyellow;
-    background-color: black;
-    border: solid #2e518b; /*anchura, estilo y color borde*/
-    padding: .5rem; /*espacio alrededor texto*/
-    text-decoration: none; /*decoración texto*/
-    text-transform: uppercase; /*capitalización texto*/
-    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
-    border-radius: 50px; /*bordes redondos*/
-    cursor: pointer;
-}
-.favorite:hover{
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
 }
 
 .cardDisplay{

@@ -71,3 +71,7 @@ export const filterDogsFrom = (temperament) => {
 export const orderDogs = (type) => {
     return {type: ORDER_DOG, payload: type}
 }
+
+//export const paginate = (page) => {
+// return {type: PAGINATE, payload: page}   
+//}

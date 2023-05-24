@@ -1,10 +1,12 @@
-import { GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, ORDER_DOG, POST_DOG, FILTER_DOG, FILTER_FROM } from "./actionTypes";
+import { GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, ORDER_DOG, FILTER_DOG, FILTER_FROM} from "./actionTypes";
 
 const initialState = {
     DogsById: {},
     DogsByTemperament: [],
     DogsByName: [],
     allDogs: [],
+    //elementsForPage: 8,
+    //page: 1,
 }
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -19,7 +21,7 @@ const reducer = (state = initialState, {type, payload}) => {
             };
         case GET_NAME:
             return {
-                ...state, DogsByName: payload,
+                ...state, allDogs: payload
             }
         case GET_TEMPERAMENTS:
             return {
@@ -54,13 +56,8 @@ const reducer = (state = initialState, {type, payload}) => {
                 orderDogs = copyState.sort((a, b) => b.name.localeCompare(a.name))
             }
               return {
-                ...state,
-                allDogs: orderDogs
-              };
-        case POST_DOG:
-            return {
-
-        }
+                ...state, allDogs: orderDogs
+            };
         default:{
             return {...state}
         }
