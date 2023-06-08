@@ -1,4 +1,4 @@
-import {FILTER_DOG, GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, POST_DOG, ORDER_DOG, FILTER_FROM} from "./actionTypes";
+import {FILTER_DOG, GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, POST_DOG, ORDER_DOG, FILTER_FROM, PAGINATE} from "./actionTypes";
 import axios from "axios";
 const host = 'http://localhost:3001/dogs'
 
@@ -38,10 +38,7 @@ export const getByName = (name) => {
 export const postDog = async ({name, life_span, weight, height, image, temperament}) => {
     const endpoint = `${host}/saveDog`;
     const {data} = await axios.post(endpoint, {name, life_span, weight, height, image, temperament})
-    console.log(data);
-    console.log(endpoint);
     return (dispatch) => {
-        console.log('antes del endpoint');
           return dispatch({
              type: POST_DOG,
              payload: data,
@@ -72,6 +69,13 @@ export const orderDogs = (type) => {
     return {type: ORDER_DOG, payload: type}
 }
 
-//export const paginate = (page) => {
-// return {type: PAGINATE, payload: page}   
-//}
+export const paginate = (page) => {
+ return {type: PAGINATE, payload: page}   
+}
+
+export const setPage = (pageNumber) => {
+    return {
+      type: 'SET_PAGE', payload: pageNumber};
+}
+  
+  

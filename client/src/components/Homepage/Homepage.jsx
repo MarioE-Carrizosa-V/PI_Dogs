@@ -6,8 +6,9 @@ const Homepage = () => {
     return (
 
         
-        <div>
-            <h1 className={style.title}> Dive into the world of dogs and their breeds </h1>
+        <div  className={style.background}>
+            <h1 className={style.title}> Canine Encyclopedia: <br/> <br/>
+            Discover Dog Breeds </h1>
             <img alt='' src='https://cdn.superaficionados.com/imagenes/koromaru.gif' className={style.image}/>
             <br/> <br/>
             <Link to='/dogs/'>

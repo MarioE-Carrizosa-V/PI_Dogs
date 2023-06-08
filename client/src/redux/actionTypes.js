@@ -6,4 +6,5 @@ export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 export const POST_DOG = 'POST_DOG';
 export const FILTER_DOG = 'FILTER_DOG';
 export const ORDER_DOG = 'ORDER_DOG';
-//export const PAGINATE = 'PAGINATE'
+export const PAGINATE = 'PAGINATE'
+export const SET_PAGE = 'SET_PAGE'

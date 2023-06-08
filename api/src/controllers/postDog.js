@@ -2,7 +2,6 @@ const {Dog, Temperament} = require('../db')
 require('dotenv').config();
   
 const postDog = async(req, res) =>{
-    console.log(req.body);
     try {
         const {name, life_span, weight, height, image, temperament} = req.body;
         if(!name || !life_span || !weight || !height || !image || !temperament) throw Error('Faltan datos')
@@ -21,23 +20,15 @@ const postDog = async(req, res) =>{
             height: height,
             image: image,
         }
-        console.log(dog);
         const dogExists = await Dog.findAll({where:     
             dog
         })
         if(!dogExists.length){
             const createDog = await Dog.create(dog)
-            console.log('1', createDog);
         let idDog = await Temperament.findAll({where:{temperament: temperament}})
-        await createDog.addTemperament(idDog) 
-        console.log('2', createDog);
+        await createDog.addTemperament(idDog)
 
-        
         } else throw Error(`El perro con el nombre ${name} ya fue creado`)
-
-        
-        
-    
 
         res.status(200).json("Perro Creado")
         

@@ -1,12 +1,13 @@
-import { GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, ORDER_DOG, FILTER_DOG, FILTER_FROM} from "./actionTypes";
+import { GET_BREED, GET_ID, GET_NAME, GET_TEMPERAMENTS, ORDER_DOG, FILTER_DOG, FILTER_FROM, POST_DOG, SET_PAGE} from "./actionTypes";
 
 const initialState = {
     DogsById: {},
     DogsByTemperament: [],
     DogsByName: [],
     allDogs: [],
-    //elementsForPage: 8,
-    //page: 1,
+    message: '',
+    elementsForPage: 8,
+    page: 1,
 }
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -29,8 +30,10 @@ const reducer = (state = initialState, {type, payload}) => {
             }
         case FILTER_DOG:
             const dogsFiltered = state.allDogs.filter(dog => dog.temperament && dog.temperament.toLowerCase().trim().includes(payload))
+            const dogsFilteredDB = state.allDogs.filter(dog => dog.Temperaments && dog.Temperaments.filter(temp => temp.temperament === payload).length > 0)
+            let dogs = [...dogsFiltered, ...dogsFilteredDB]
             return {
-                ...state, allDogs: dogsFiltered
+                ...state, allDogs: dogs
         }
         case FILTER_FROM:
             const dogsFilterFrom = state.allDogs.filter(dog =>{
@@ -47,17 +50,30 @@ const reducer = (state = initialState, {type, payload}) => {
             }
         case ORDER_DOG:
             const copyState = [...state.allDogs];
-            
             let orderDogs;
-
-            if (payload === "A") {
-                orderDogs = copyState.sort((a, b) => a.name.localeCompare(b.name));
-              } else if (payload === "D") {
-                orderDogs = copyState.sort((a, b) => b.name.localeCompare(a.name))
+            switch (payload) {
+                case "A":
+                    orderDogs = copyState.sort((a, b) => a.name.localeCompare(b.name));
+                    return {
+                        ...state, allDogs: orderDogs
+                    };
+                case "D":
+                    orderDogs = copyState.sort((a, b) => b.name.localeCompare(a.name));
+                    return {
+                        ...state, allDogs: orderDogs
+                    };
+                default:{
+                    return {...copyState}
+                }
             }
-              return {
-                ...state, allDogs: orderDogs
-            };
+            case POST_DOG:
+                return{
+                    ...state, message: payload
+                }
+            case SET_PAGE:
+                return {
+                ...state, page: payload,
+                };
         default:{
             return {...state}
         }

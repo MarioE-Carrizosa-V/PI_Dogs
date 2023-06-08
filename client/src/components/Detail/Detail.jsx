@@ -24,18 +24,19 @@ const Detail = () => {
     return (
     <div className={style.cardDisplay}>
         <div>
-        <Link to={'/'}> <button className={style.button}> HomePage </button> </Link>
+        <Link to='/dogs/'> <button className={style.button}> Back </button> </Link>
 
         <Link to='/dogs/saveDog'> <button className={style.button}> Create Your Dog </button> </Link>
 
-        <Link to='/dogs/'> <button className={style.button}>All Dogs</button> </Link>
+        <Link to={'/'}> <button className={style.button}> Exit </button> </Link>
+
 
                 <h2 className={style.text}>{dogById.name}</h2>
                 <img className={style.image} src={dogById.image} alt=''/>
                 <p className={style.weight}>Weight in Kg: {dogById.weight}</p>
                 <p className={style.height}>Height in cm: {dogById.height}</p>
                 <p className={style.life}>Life span: {dogById.life_span}</p>
-                <p className={style.temperament}>{dogById.Temperaments? dogById.Temperaments.map((temp) => temp.temperament): dogById.temperament}</p>
+                <p className={style.temperament}>{dogById.Temperaments? dogById.Temperaments.map((temp) => '  *  ' +temp.temperament): dogById.temperament}</p>
         </div>
     </div>
     )

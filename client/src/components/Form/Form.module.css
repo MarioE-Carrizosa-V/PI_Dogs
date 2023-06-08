@@ -9,11 +9,14 @@
   } 
 
 .form{
-    color:navy;
+    color: silver;
     font-size: x-large;
     text-transform: uppercase; /*capitalización texto*/
     font-weight: bolder;
     font-style: oblique;
+    -webkit-text-stroke: 1px red; /* Ancho y color del borde */
+    background-color: aqua;
+    border-radius: 2rem;
 }
 
 .buttonBack{
@@ -81,5 +84,31 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: purple;
-}
+    background-color: white;
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 2rem;  
+  }
 
+ .background{
+  background-repeat: auto;
+  background-image: url('https://st4.depositphotos.com/11498520/19767/v/450/depositphotos_197672230-stock-illustration-dog-paw-seamless-pattern-cat.jpg');
+  background-repeat: repeat;
+ }
+
+ .temps{
+  text-align: center;
+  color: black;
+  font-size: x-large;
+  text-transform: uppercase; /*capitalización texto*/
+  font-weight: bolder;
+  font-style: oblique;
+  background-color: silver;
+  border-radius: 2rem;
+  width: 16rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+ }

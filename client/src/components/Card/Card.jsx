@@ -15,6 +15,7 @@ const Card = ({id, name, image, temperament}) => {
               <h1 className={style.text}>{name}</h1>
                 </Link>
               <img src={image} alt='' className={style.imagen}/>
+              
               {
                 temperament && temperament.length ?
                 temperament.map(temp => temp.temperament  ?

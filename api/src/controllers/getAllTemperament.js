@@ -6,10 +6,8 @@ const {URL} = process.env;
 const getTemperament = async(req, res) =>{
     try {
         const { data } = await axios(`${URL}`)
-        console.log(data);
         const temperament = data.map(dog => dog.temperament ? dog.temperament.split(',') : dog.temperament)
         const allTemperament = temperament.flat()
-        console.log(allTemperament);
             for (let i = 0; i < allTemperament.length; i++) {
                 if(allTemperament[i])
                 await Temperament.findOrCreate({ where:

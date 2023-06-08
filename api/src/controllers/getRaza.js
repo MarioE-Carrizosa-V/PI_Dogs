@@ -9,7 +9,6 @@ const {Dog, Temperament} = require('../db')
         try {
             let allDogs = []
             const {data} = await axios(`${URL}`)
-            console.log(typeof data.temperament);
             const allDogsDB = await Dog.findAll({include: {model: Temperament, through: 'dogTemperament', attributes: ['temperament']}})
             allDogs = [...data, ...allDogsDB]
 
